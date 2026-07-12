@@ -1,0 +1,6 @@
+{
+  "name": "Cinematic Landing Page",
+  "description": "A single-page cinematic landing site with looping background videos and a liquid-glass design system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
