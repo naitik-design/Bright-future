@@ -36,12 +36,16 @@ export default function App() {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
       smoothWheel: true,
-      infinite: false,
     });
 
     // Connect Lenis with ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
+
+    // Disable lag smoothing to prevent visual jumps
+    gsap.ticker.lagSmoothing(0);
 
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
@@ -67,8 +71,8 @@ export default function App() {
     gsap.fromTo('.hero-bg-video',
       { scale: 1.0, y: 0 },
       {
-        scale: 1.15,
-        y: 80,
+        scale: 1.05,
+        y: 60,
         ease: 'none',
         scrollTrigger: {
           trigger: '.hero-section-container',
@@ -81,16 +85,15 @@ export default function App() {
 
     // 3. Capabilities header reveal
     gsap.fromTo('.capabilities-header-reveal',
-      { opacity: 0, x: -60, filter: 'blur(10px)' },
+      { opacity: 0, x: -40 },
       {
         opacity: 1,
         x: 0,
-        filter: 'blur(0px)',
-        duration: 1.2,
+        duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '.capabilities-section-container',
-          start: 'top 80%',
+          start: 'top 85%',
           toggleActions: 'play none none reverse'
         }
       }

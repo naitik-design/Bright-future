@@ -187,7 +187,7 @@ export function CarCanvas() {
       rotX: 0.1,
       rotY: -1.2,
       rotZ: 0,
-      scale: isMobile ? 0.5 : 0.8,
+      scale: isMobile ? 0.45 : 0.8,
     });
 
     const ctx = gsap.context(() => {
@@ -208,7 +208,7 @@ export function CarCanvas() {
         rotX: 0.05,
         rotY: -0.8,
         rotZ: 0.02,
-        scale: isMobile ? 0.75 : 1.35,
+        scale: isMobile ? 0.65 : 1.35,
         duration: 1,
       })
       .to(stateObj, {
@@ -218,7 +218,7 @@ export function CarCanvas() {
         rotX: -0.05,
         rotY: -0.4,
         rotZ: 0.05,
-        scale: isMobile ? 0.85 : 1.6,
+        scale: isMobile ? 0.75 : 1.6,
         duration: 1,
       })
       .to(stateObj, {
@@ -228,7 +228,7 @@ export function CarCanvas() {
         rotX: 0.02,
         rotY: -1.57, // Perfectly profiles side view
         rotZ: -0.02,
-        scale: isMobile ? 0.8 : 1.4,
+        scale: isMobile ? 0.6 : 1.4,
         duration: 1,
       })
       .to(stateObj, {
@@ -238,7 +238,7 @@ export function CarCanvas() {
         rotX: 0.05,
         rotY: Math.PI * 1.2, // Full scenic orbit rotation
         rotZ: 0,
-        scale: isMobile ? 0.8 : 1.3,
+        scale: isMobile ? 0.65 : 1.3,
         duration: 1,
       })
       .to(stateObj, {
@@ -248,7 +248,7 @@ export function CarCanvas() {
         rotX: 0.05,
         rotY: Math.PI * 1.9, // Facing the visitor
         rotZ: 0,
-        scale: isMobile ? 0.9 : 1.5,
+        scale: isMobile ? 0.7 : 1.5,
         duration: 1,
       });
     });
@@ -258,7 +258,7 @@ export function CarCanvas() {
 
   return (
     <div 
-      className={`fixed inset-0 w-full h-full pointer-events-none transition-opacity duration-1000 ease-out z-30`}
+      className={`fixed inset-0 w-full h-full pointer-events-none transition-opacity duration-1000 ease-out z-0`}
       style={{ display: isVisible ? 'block' : 'none' }}
     >
       <WebGLErrorBoundary>

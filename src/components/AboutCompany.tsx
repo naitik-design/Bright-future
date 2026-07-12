@@ -77,6 +77,7 @@ export function AboutCompany() {
         <video
           ref={videoRef}
           src="https://res.cloudinary.com/jmoelmzp/video/upload/lv_0_20260712100516_fj6qdo.mp4"
+          poster="https://res.cloudinary.com/jmoelmzp/video/upload/lv_0_20260712100516_fj6qdo.jpg"
           className="absolute inset-0 w-full h-full object-cover scale-105"
           autoPlay
           muted
@@ -131,7 +132,7 @@ export function AboutCompany() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-text-secondary text-base md:text-lg leading-relaxed font-body font-light mb-8 max-w-2xl"
             >
-              I am a passionate website designer and developer dedicated to creating premium, hyper-interactive digital interfaces. Much like a bespoke supercar, my websites are engineered for breathtaking speed, pristine aesthetics, and flawless responsiveness. I fuse front-end craft with high-fidelity WebGL animations and fluid luxury UX.
+              I am a passionate website designer and developer dedicated to creating premium, high-performance digital interfaces. Much like a bespoke sports car, my websites are engineered for breathtaking speed, pristine aesthetics, and flawless responsiveness. I fuse front-end craft with WebGL animations and fluid luxury UX.
             </motion.p>
 
             {/* Asymmetric Core Values Grid */}
@@ -140,12 +141,12 @@ export function AboutCompany() {
                 {
                   icon: <ShieldCheck className="w-5 h-5 text-brand-orange" />,
                   title: "Precision Engineering",
-                  desc: "Meticulous, responsive, pixel-perfect code configured with modern frameworks to ensure loading times are as fast as a Chiron's launch."
+                  desc: "Meticulous, responsive code configured with modern frameworks to ensure loading times are practically instantaneous."
                 },
                 {
                   icon: <Globe className="w-5 h-5 text-brand-gold" />,
-                  title: "Cinematic Motion",
-                  desc: "Leveraging custom GSAP triggers, smooth Lenis scrolling, and 3D interactions that glide like a Spectre on air suspension."
+                  title: "Fluid Motion",
+                  desc: "Leveraging custom GSAP triggers, smooth Lenis scrolling, and 3D interactions for a seamless user experience."
                 }
               ].map((val, idx) => (
                 <motion.div
@@ -190,7 +191,7 @@ export function AboutCompany() {
               <div className="relative z-10 flex justify-between items-start">
                 <span className="bg-brand-gold/10 text-brand-gold border border-brand-gold/20 text-[10px] font-bold tracking-widest rounded-full px-3 py-1 flex items-center gap-1">
                   <Trophy className="w-3 h-3 text-brand-gold animate-bounce" />
-                  <span>AWARDS 2026 // BEST DESIGNS</span>
+                  <span>2026 PORTFOLIO</span>
                 </span>
                 <span className="text-[10px] font-mono text-text-muted">SYS.VER.3.05</span>
               </div>

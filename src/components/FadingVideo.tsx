@@ -4,16 +4,35 @@ interface FadingVideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
   src: string;
   className?: string;
   style?: React.CSSProperties;
+  poster?: string;
 }
 
-export function FadingVideo({ src, className, style, ...props }: FadingVideoProps) {
+export function FadingVideo({ src, className, style, poster, ...props }: FadingVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const fadeRafId = useRef<number | null>(null);
   const fadingOutRef = useRef<boolean>(false);
+  const isIntersectingRef = useRef<boolean>(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    // Intersection Observer to pause when off-screen
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isIntersectingRef.current = entry.isIntersecting;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.0, rootMargin: '100px' }
+    );
+    
+    observer.observe(video);
 
     const FADE_MS = 500;
     const FADE_OUT_LEAD = 0.55; // seconds
@@ -45,7 +64,9 @@ export function FadingVideo({ src, className, style, ...props }: FadingVideoProp
 
     const handleLoadedData = () => {
       video.style.opacity = '0';
-      video.play().catch(console.error);
+      if (isIntersectingRef.current) {
+        video.play().catch(() => {});
+      }
       fadeTo(1);
     };
 
@@ -62,7 +83,9 @@ export function FadingVideo({ src, className, style, ...props }: FadingVideoProp
       video.style.opacity = '0';
       setTimeout(() => {
         video.currentTime = 0;
-        video.play().catch(console.error);
+        if (isIntersectingRef.current) {
+          video.play().catch(() => {});
+        }
         fadingOutRef.current = false;
         fadeTo(1);
       }, 100);
@@ -73,6 +96,7 @@ export function FadingVideo({ src, className, style, ...props }: FadingVideoProp
     video.addEventListener('ended', handleEnded);
 
     return () => {
+      observer.disconnect();
       if (fadeRafId.current !== null) {
         cancelAnimationFrame(fadeRafId.current);
       }
@@ -92,6 +116,7 @@ export function FadingVideo({ src, className, style, ...props }: FadingVideoProp
       muted
       playsInline
       preload="auto"
+      poster={poster}
       {...props}
     />
   );

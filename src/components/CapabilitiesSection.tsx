@@ -28,7 +28,7 @@ export function CapabilitiesSection() {
       topSpeed: "350 km/h",
       acceleration: "2.5s",
       desc: "The pinnacle of Sant'Agata: Maranello's ultimate rival introduces the V12 plug-in hybrid HPEV, setting a futuristic paradigm of performance and luxury.",
-      image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80",
       accentColor: "from-orange-500 to-amber-600",
       bgGlow: "rgba(249,115,22,0.15)"
     },
@@ -39,31 +39,9 @@ export function CapabilitiesSection() {
       topSpeed: "340 km/h",
       acceleration: "2.5s",
       desc: "Maranello's engineering triumph, combining a potent twin-turbo V8 with three electric motors to unleash absolute, state-of-the-art racetrack dominance.",
-      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80",
       accentColor: "from-red-600 to-rose-700",
       bgGlow: "rgba(220,38,38,0.15)"
-    },
-    {
-      name: "Bugatti Chiron Super Sport",
-      engine: "8.0L Quad-Turbo W16",
-      horsepower: "1,600 HP",
-      topSpeed: "440 km/h",
-      acceleration: "2.2s",
-      desc: "The ultimate hypercar. Specifically engineered for extreme high-speed aerodynamics and peerless luxury, establishing speed limits previously deemed impossible.",
-      image: "https://images.unsplash.com/photo-1600706432502-75a0e2b34457?auto=format&fit=crop&q=80&w=800",
-      accentColor: "from-blue-600 to-indigo-700",
-      bgGlow: "rgba(37,99,235,0.15)"
-    },
-    {
-      name: "McLaren 765LT",
-      engine: "4.0L Twin-Turbo V8",
-      horsepower: "765 HP",
-      topSpeed: "330 km/h",
-      acceleration: "2.8s",
-      desc: "Fierce, track-focused, and incredibly light. A limited-edition Longtail that delivers uncompromised driver connection and blistering mechanical response.",
-      image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=800",
-      accentColor: "from-yellow-500 to-amber-500",
-      bgGlow: "rgba(245,158,11,0.15)"
     },
     {
       name: "Porsche 911 GT3 RS",
@@ -72,7 +50,7 @@ export function CapabilitiesSection() {
       topSpeed: "296 km/h",
       acceleration: "3.2s",
       desc: "A pure racing machine designed for public roads. Optimized with active motorsport aerodynamics, adjustable suspension, and a high-revving soul.",
-      image: "https://images.unsplash.com/photo-1611566141121-81373b470412?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1200&q=80",
       accentColor: "from-emerald-500 to-teal-600",
       bgGlow: "rgba(16,185,129,0.15)"
     },
@@ -83,7 +61,7 @@ export function CapabilitiesSection() {
       topSpeed: "250 km/h",
       acceleration: "4.5s",
       desc: "An all-electric masterpiece. Gliding on an illuminated magic carpet ride, Spectre merges whisper-quiet performance with the absolute pinnacle of luxury.",
-      image: "https://images.unsplash.com/photo-1632245889029-e406faaa34cd?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80",
       accentColor: "from-purple-600 to-fuchsia-700",
       bgGlow: "rgba(147,51,234,0.15)"
     }
@@ -128,23 +106,23 @@ export function CapabilitiesSection() {
               transition={{ duration: 0.8, delay: idx * 0.1, ease: 'easeOut' }}
               onMouseEnter={() => setSelectedCar(idx)}
               onMouseLeave={() => setSelectedCar(null)}
-              className="relative"
+              className="relative h-full"
             >
-              <TiltCard className="rounded-3xl overflow-hidden min-h-[520px] flex flex-col justify-between border border-white/10 hover:border-brand-orange/30 bg-[#0D1117] group transition-all duration-500">
+              <TiltCard className="h-full rounded-3xl overflow-hidden flex flex-col justify-between border border-white/10 hover:border-brand-orange/30 bg-[#0D1117] group transition-all duration-500 hover:-translate-y-2">
                 
                 {/* Visual Image container */}
-                <div className="relative h-48 overflow-hidden w-full rounded-t-3xl">
+                <div className="relative aspect-[16/9] overflow-hidden w-full rounded-t-3xl shrink-0">
                   {/* Zooming background image */}
                   <PremiumImage 
                     src={car.image} 
                     alt={car.name} 
-                    className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 filter brightness-90 group-hover:brightness-100"
+                    className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-1000 filter brightness-90 group-hover:brightness-100"
                   />
                   {/* Subtle color overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-transparent to-black/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-transparent to-transparent opacity-80" />
                   
                   {/* Floating spec indicator */}
-                  <div className="absolute top-4 right-4 bg-[#050608]/90 border border-white/10 px-3 py-1 rounded-full text-[10px] font-mono text-brand-gold">
+                  <div className="absolute top-4 right-4 bg-[#050608]/90 border border-white/10 px-3 py-1 rounded-full text-[10px] font-mono text-brand-gold backdrop-blur-md">
                     {car.acceleration} (0-100)
                   </div>
                 </div>
@@ -153,17 +131,17 @@ export function CapabilitiesSection() {
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
                     {/* Brand gradient line */}
-                    <div className={`w-12 h-1 rounded-full bg-gradient-to-r ${car.accentColor} mb-4`} />
-                    <h3 className="font-heading italic text-white text-2xl md:text-3xl tracking-tight mb-2 group-hover:text-brand-orange transition-colors">
+                    <div className={`w-12 h-1 rounded-full bg-gradient-to-r ${car.accentColor} mb-4 opacity-70 group-hover:opacity-100 transition-opacity`} />
+                    <h3 className="font-heading italic text-white text-2xl tracking-tight mb-3 group-hover:text-brand-orange transition-colors">
                       {car.name}
                     </h3>
-                    <p className="text-xs text-text-secondary leading-relaxed font-body font-light mb-6">
+                    <p className="text-sm text-text-secondary leading-relaxed font-body font-light mb-6 line-clamp-3">
                       {car.desc}
                     </p>
                   </div>
 
                   {/* High performance specifications grid */}
-                  <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/5 pt-5 mt-auto">
                     {/* Spec Item 1 */}
                     <div className="flex items-center gap-2.5">
                       <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">

@@ -1,6 +1,9 @@
 {
   "name": "Bright Future | Premium Automotive Portfolio",
+  "short_name": "Bright Future",
   "description": "Discover the most premium automotive portfolio showcasing elite luxury cars.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050608",
+  "theme_color": "#FF5A36"
 }

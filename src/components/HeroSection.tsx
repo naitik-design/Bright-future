@@ -114,36 +114,36 @@ export function HeroSection({ onLaunch }: HeroSectionProps) {
 
       <div className="hero-text-container relative z-10 flex-1 flex flex-col items-center justify-center pt-24 px-4">
         <motion.div
-          initial={prefersReduced ? { opacity: 0 } : { filter: 'blur(8px)', opacity: 0, y: 20 }}
-          animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
-          transition={{ duration: prefersReduced ? 0.4 : 0.8, delay: prefersReduced ? 0.2 : 0.4, ease: 'easeOut' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: prefersReduced ? 0.2 : 0.4, ease: 'easeOut' }}
           className="liquid-glass rounded-full p-1 pr-4 flex items-center gap-3 mb-8 border-brand-orange/30 bg-[#0B0E13]/50"
           style={{ willChange: 'transform, opacity' }}
         >
-          <span className="bg-brand-orange text-white px-3 py-1 text-xs font-bold rounded-full tracking-wide shadow-[0_0_10px_rgba(255,90,54,0.4)]">PORTFOLIO</span>
-          <span className="text-xs md:text-sm text-text-secondary font-medium">Interactive Automotive Web Experiences &bull; Edition 2026</span>
+          <span className="bg-brand-orange text-white px-3 py-1 text-xs font-bold rounded-full tracking-wide shadow-[0_0_10px_rgba(255,90,54,0.4)]">LIVE</span>
+          <span className="text-xs md:text-sm text-text-secondary font-medium">2026 Portfolio &bull; Live Production</span>
         </motion.div>
 
         <BlurText
-          text="Crafting Next-Generation Digital Experiences"
+          text="Crafting Premium Automotive Web Experiences"
           className="text-6xl md:text-7xl lg:text-[5.5rem] font-heading italic text-white leading-[0.8] max-w-4xl text-center tracking-[-4px]"
           delay={0}
         />
 
         <motion.p
-          initial={prefersReduced ? { opacity: 0 } : { filter: 'blur(8px)', opacity: 0, y: 20 }}
-          animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
-          transition={{ duration: prefersReduced ? 0.4 : 0.8, delay: prefersReduced ? 0.4 : 0.8, ease: 'easeOut' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: prefersReduced ? 0.4 : 0.8, ease: 'easeOut' }}
           className="mt-6 text-sm md:text-base text-text-secondary max-w-2xl text-center font-body font-light leading-relaxed"
           style={{ willChange: 'transform, opacity' }}
         >
-          I design immersive, high-performance websites with cinematic animations, 3D interactions, AI integrations, and luxury user experiences.
+          I design high-performance websites with fluid animations, 3D interactions, and authentic luxury user experiences for elite brands.
         </motion.p>
 
         <motion.div
-          initial={prefersReduced ? { opacity: 0 } : { filter: 'blur(8px)', opacity: 0, y: 20 }}
-          animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
-          transition={{ duration: prefersReduced ? 0.4 : 0.8, delay: prefersReduced ? 0.6 : 1.1, ease: 'easeOut' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: prefersReduced ? 0.6 : 1.1, ease: 'easeOut' }}
           className="flex items-center justify-center gap-6 mt-8"
           style={{ willChange: 'transform, opacity' }}
         >
@@ -162,8 +162,8 @@ export function HeroSection({ onLaunch }: HeroSectionProps) {
         </motion.div>
 
         <motion.div
-          initial={{ filter: 'blur(10px)', opacity: 0, y: 20 }}
-          animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.3, ease: 'easeOut' }}
           className="flex items-stretch justify-center gap-4 mt-12 flex-wrap"
         >
@@ -172,8 +172,8 @@ export function HeroSection({ onLaunch }: HeroSectionProps) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <div>
-              <div className="font-heading italic text-brand-gold text-4xl tracking-[-1px] leading-none drop-shadow-[0_0_8px_rgba(246,196,83,0.25)]">300 FPS</div>
-              <div className="text-xs text-text-muted font-body font-light mt-2">Silky Smooth Web GL Rendering</div>
+              <div className="font-heading italic text-brand-gold text-4xl tracking-[-1px] leading-none drop-shadow-[0_0_8px_rgba(246,196,83,0.25)]">60 FPS</div>
+              <div className="text-xs text-text-muted font-body font-light mt-2">Fluid WebGL Rendering</div>
             </div>
           </div>
           <div className="liquid-glass p-5 w-[220px] rounded-[1.25rem] flex flex-col justify-between border-white/10 hover:border-brand-gold/30 bg-[#12161D]/40 transition-all">
@@ -189,8 +189,8 @@ export function HeroSection({ onLaunch }: HeroSectionProps) {
       </div>
 
       <motion.div
-        initial={{ filter: 'blur(10px)', opacity: 0, y: 20 }}
-        animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.4, ease: 'easeOut' }}
         className="relative z-10 flex flex-col items-center gap-5 pb-10 pt-8"
       >

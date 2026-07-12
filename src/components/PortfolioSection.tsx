@@ -15,7 +15,7 @@ export function PortfolioSection() {
       performance: "120 FPS Rendering Speed",
       conversions: "+42% Brand Engagement",
       desc: "A full-throttle WebGL-powered 3D vehicle configurator experience. Users can modify colors, carbon trim, and active aerodynamics in real-time, accompanied by spatial engine audio and fluid cinematic camera movements.",
-      image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1611566141121-81373b470412?auto=format&fit=crop&w=1200&q=80",
       stats: { rating: "Awwwards Site of the Day", tech: "GLSL Shaders & Raycasting" }
     },
     {
@@ -25,7 +25,7 @@ export function PortfolioSection() {
       performance: "98 Lighthouse Performance",
       conversions: "+31% Test Drive Bookings",
       desc: "A luxury digital showroom designed to present Ferrari's hybrid masterpiece. Features complex scroll-bound video scrubbing, state-of-the-art layout grids, and slick transitions matching the vehicle's aerodynamic curves.",
-      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1632245889029-e406faaa34cd?auto=format&fit=crop&w=1200&q=80",
       stats: { rating: "CSSDA Best UI/UX Design", tech: "Video Scrub & ScrollTrigger" }
     },
     {
@@ -35,7 +35,7 @@ export function PortfolioSection() {
       performance: "99 Core Web Vitals Score",
       conversions: "Seamless High-Net-Worth Leads",
       desc: "An immersive ultra-premium launch hub celebrating Bugatti's legendary speed records. Showcases beautiful typography, seamless preloading triggers, fluid canvas effects, and an interactive horsepower power-curve chart.",
-      image: "https://images.unsplash.com/photo-1600706432502-75a0e2b34457?auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80",
       stats: { rating: "Red Dot Design Award Winner", tech: "Dynamic SVG Draw & Canvas" }
     }
   ];
@@ -93,9 +93,9 @@ export function PortfolioSection() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIdx}
-                initial={{ opacity: 0, scale: 1.05, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, scale: 0.98, filter: 'blur(10px)' }}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.6 }}
                 className="absolute inset-0"
               >

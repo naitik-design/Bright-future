@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { PremiumImage } from './PremiumImage';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Milestone, CheckCircle2, Search, Edit3, Paintbrush, Cpu, Zap, Rocket } from 'lucide-react';
 
@@ -18,43 +19,49 @@ export function ProcessSection() {
       num: "01",
       title: "Research",
       subtitle: "AUDITING & COMPETITOR INTEL",
-      desc: "Diving deep into your brand's unique legacy, vehicle aerodynamics, and luxury demographics. I architect custom interface milestones and specify strict high-performance benchmarks.",
-      icon: <Search className="w-5 h-5 text-brand-orange" />
+      desc: "Diving deep into your brand's unique legacy and luxury demographics. I architect custom interfaces and specify strict performance benchmarks.",
+      icon: <Search className="w-5 h-5 text-brand-orange" />,
+      image: "/src/assets/images/dashboard_analytics_1783858446562.jpg"
     },
     {
       num: "02",
       title: "Wireframe",
       subtitle: "SCHEMATICS & USER FLOWS",
-      desc: "Mapping out complex digital cockpit wireframes and navigation hierarchies. Ensuring every interactive viewport behaves intuitively and directs user focus to focal vehicle lines.",
-      icon: <Edit3 className="w-5 h-5 text-brand-gold" />
+      desc: "Mapping out digital wireframes and navigation hierarchies. Ensuring every interactive viewport behaves intuitively and directs user focus to focal lines.",
+      icon: <Edit3 className="w-5 h-5 text-brand-gold" />,
+      image: "/src/assets/images/wireframe_schematics_1783858484422.jpg"
     },
     {
       num: "03",
       title: "UI Design",
       subtitle: "LUXURY VISUAL AESTHETICS",
-      desc: "Injecting sports car inspiration, sleek typography, dynamic glowing accents, and premium textures. I draft bespoke mockups designed to evoke high-end automotive prestige.",
-      icon: <Paintbrush className="w-5 h-5 text-brand-orange" />
+      desc: "Using sleek typography and premium textures, I draft mockups designed to evoke high-end digital prestige.",
+      icon: <Paintbrush className="w-5 h-5 text-brand-orange" />,
+      image: "/src/assets/images/premium_web_design_1783858409206.jpg"
     },
     {
       num: "04",
       title: "Development",
       subtitle: "ENGINE INTEGRATION & WEBGL",
-      desc: "Translating static visual vectors into production-grade React code, rich CSS properties, custom GSAP triggers, and hardware-accelerated Three.js scenes that perform effortlessly.",
-      icon: <Cpu className="w-5 h-5 text-brand-gold" />
+      desc: "Translating static visual vectors into production-grade React code, responsive CSS properties, custom triggers, and optimized Three.js scenes.",
+      icon: <Cpu className="w-5 h-5 text-brand-gold" />,
+      image: "/src/assets/images/webgl_3d_interface_1783858424671.jpg"
     },
     {
       num: "05",
       title: "Optimization",
-      subtitle: "DYNO-TUNING & STRESS TESTS",
-      desc: "Rigorously auditing core scripts, compressing high-resolution assets, and stabilizing WebGL shaders. We fine-tune each interactive element to guarantee buttery-smooth 120 FPS performance.",
-      icon: <Zap className="w-5 h-5 text-brand-orange animate-pulse" />
+      subtitle: "STRESS TESTS",
+      desc: "Auditing core scripts, compressing high-resolution assets, and stabilizing WebGL shaders. We fine-tune each interactive element to guarantee smooth performance.",
+      icon: <Zap className="w-5 h-5 text-brand-orange animate-pulse" />,
+      image: "/src/assets/images/code_editor_ide_1783858473003.jpg"
     },
     {
       num: "06",
       title: "Deployment",
-      subtitle: "GREEN-LIGHT WORLDWIDE RELEASE",
-      desc: "Launching your high-prestige web platform on global edge networks with strict SSR headers, making sure prospective high-net-worth buyers experience instant loading speeds worldwide.",
-      icon: <Rocket className="w-5 h-5 text-success" />
+      subtitle: "WORLDWIDE RELEASE",
+      desc: "Launching your premium web platform on global edge networks with strict SSR caching, ensuring users experience fast loading speeds worldwide.",
+      icon: <Rocket className="w-5 h-5 text-success" />,
+      image: "/src/assets/images/technology_3d_composition_1783858495111.jpg"
     }
   ];
 
@@ -105,12 +112,19 @@ export function ProcessSection() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 0.8, delay: 0.1 }}
-                      className="liquid-glass p-6 md:p-8 rounded-[1.75rem] border-white/10 hover:border-brand-orange/30 bg-[#12161D]/50 w-full relative group transition-all"
+                      className="liquid-glass rounded-[1.75rem] border-white/10 hover:border-brand-orange/30 bg-[#12161D]/50 w-full relative group transition-all overflow-hidden flex flex-col"
                     >
+                      <div className="relative aspect-[16/9] w-full overflow-hidden shrink-0 border-b border-white/5">
+                        <PremiumImage src={step.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#12161D]/80 via-transparent to-transparent opacity-90" />
+                        {/* Holographic background number */}
+                        <span className="absolute right-6 bottom-4 font-heading italic text-white/20 text-5xl md:text-6xl leading-none font-bold select-none pointer-events-none group-hover:text-brand-orange/30 transition-colors z-10">
+                          {step.num}
+                        </span>
+                      </div>
+                      <div className="p-6 md:p-8 relative z-10 flex-grow">
                       {/* Holographic background number */}
-                      <span className="absolute right-6 top-4 font-heading italic text-white/5 text-7xl md:text-8xl leading-none font-bold select-none pointer-events-none group-hover:text-brand-orange/5 transition-colors">
-                        {step.num}
-                      </span>
+                      
 
                       <div className="flex items-center gap-3 mb-4">
                         <div className="w-10 h-10 rounded-xl liquid-glass border-white/10 flex items-center justify-center bg-bg-secondary shrink-0">
@@ -125,6 +139,7 @@ export function ProcessSection() {
                       <p className="text-text-secondary text-xs md:text-sm font-body font-light leading-relaxed relative z-10">
                         {step.desc}
                       </p>
+                      </div>
                     </motion.div>
                   </div>
 

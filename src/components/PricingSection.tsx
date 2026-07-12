@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
+import { PremiumImage } from './PremiumImage';
 import { Check, ShieldCheck, Star, Award, Zap } from 'lucide-react';
 
 export function PricingSection({ onLaunch }: { onLaunch: () => void }) {
@@ -20,7 +21,8 @@ export function PricingSection({ onLaunch }: { onLaunch: () => void }) {
         "Basic SEO metadata configurations"
       ],
       popular: false,
-      color: "border-white/10"
+      color: "border-white/10",
+      image: "/src/assets/images/premium_web_design_1783858409206.jpg"
     },
     {
       name: "3D Web Showroom",
@@ -36,7 +38,8 @@ export function PricingSection({ onLaunch }: { onLaunch: () => void }) {
         "Lazy-loaded asset pipelines supporting heavy meshes"
       ],
       popular: true,
-      color: "border-brand-orange/40"
+      color: "border-brand-orange/40",
+      image: "/src/assets/images/webgl_3d_interface_1783858424671.jpg"
     },
     {
       name: "Elite Enterprise Ecosystem",
@@ -52,7 +55,8 @@ export function PricingSection({ onLaunch }: { onLaunch: () => void }) {
         "High-priority design briefs & ongoing SLA support"
       ],
       popular: false,
-      color: "border-brand-gold/40"
+      color: "border-brand-gold/40",
+      image: "/src/assets/images/responsive_mockups_1783858460512.jpg"
     }
   ];
 
@@ -103,8 +107,12 @@ export function PricingSection({ onLaunch }: { onLaunch: () => void }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: idx * 0.15 }}
-              className={`relative flex flex-col justify-between rounded-[2rem] p-8 md:p-10 border ${pkg.color} bg-[#0D1117] transition-all duration-500 hover:-translate-y-2 group`}
-            >
+              className={`relative flex flex-col justify-between rounded-[2rem] border ${pkg.color} bg-[#0D1117] transition-all duration-500 hover:-translate-y-2 group overflow-hidden`}>
+              <div className="relative aspect-[16/9] w-full overflow-hidden shrink-0 border-b border-white/5">
+                <PremiumImage src={pkg.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/50 to-transparent opacity-90" />
+              </div>
+              <div className="p-8 md:p-10 pt-6 flex flex-col flex-grow relative z-10">
               {/* Highlight Ribbon for Popular Tier */}
               {pkg.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-orange text-white text-[9px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(255,90,54,0.4)] flex items-center gap-1">
@@ -160,7 +168,7 @@ export function PricingSection({ onLaunch }: { onLaunch: () => void }) {
                 <Zap className="w-3.5 h-3.5" />
                 <span>SELECT PACKAGE</span>
               </a>
-
+              </div>
             </motion.div>
           ))}
         </div>

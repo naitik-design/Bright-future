@@ -10,28 +10,28 @@ export function TestimonialsSection() {
 
   const testimonials = [
     {
-      quote: "He designed a WebGL car configurator for our luxury showroom that was absolutely flawless. The 3D interactions and frame rates are incredibly smooth, yielding a 42% increase in custom customer configurations.",
+      quote: "He designed a WebGL vehicle configurator for our showroom that was absolutely flawless. The 3D interactions and frame rates are incredibly smooth, yielding a 42% increase in custom customer configurations.",
       author: "Stefano Rosso",
       role: "VP of Digital Design, Maranello Concepts",
       destination: "AeroRevuelto & SF90 Showroom Projects",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+      avatar: "/src/assets/images/executive_stefano_1783858587225.jpg"
     },
     {
-      quote: "Our landing page launch was critical, and he completely overdelivered. He integrated video scroll-scrubbing with custom GSAP transitions that felt as smooth and precise as active air suspension. Truly an elite developer.",
+      quote: "Our landing page launch was critical, and he completely overdelivered. He integrated video scroll-scrubbing with custom GSAP transitions. A highly skilled developer.",
       author: "Christian von Koenig",
       role: "Brand Director, Apex Velocity",
       destination: "Chiron Super Sport Campaign Hub",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+      avatar: "/src/assets/images/executive_christian_1783858600881.jpg"
     },
     {
-      quote: "I've never worked with a designer-developer who has such a strong visual eye. He captured our brand prestige perfectly. From the fluid micro-interactions to the 100% lighthouse performance scores, he is a true master.",
+      quote: "I've never worked with a designer-developer who has such a strong visual eye. He captured our brand prestige perfectly. From the fluid micro-interactions to the perfect performance scores, he is a true professional.",
       author: "Alistair Sterling",
       role: "Founder, Spectre Design Network",
       destination: "Interactive Brand Showcase",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80"
+      avatar: "/src/assets/images/executive_alistair_1783858613922.jpg"
     }
   ];
 

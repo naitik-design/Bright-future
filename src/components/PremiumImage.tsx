@@ -8,7 +8,7 @@ export function PremiumImage({ src, alt, className = '', fallbackImage, ...props
   const [status, setStatus] = useState<'loading' | 'loaded' | 'error'>('loading');
 
   // High-quality cinematic fallback image in case of failure
-  const defaultFallback = "https://images.unsplash.com/photo-1600706432502-75a0e2b34457?auto=format&fit=crop&w=1200&q=80";
+  const defaultFallback = "/src/assets/images/premium_web_design_1783858409206.jpg";
   
   return (
     <div className="relative w-full h-full overflow-hidden">
@@ -23,6 +23,7 @@ export function PremiumImage({ src, alt, className = '', fallbackImage, ...props
         src={status === 'error' ? (fallbackImage || defaultFallback) : src}
         alt={alt}
         loading="lazy"
+        referrerPolicy="no-referrer"
         onLoad={() => setStatus('loaded')}
         onError={() => setStatus('error')}
         className={`${className} ${

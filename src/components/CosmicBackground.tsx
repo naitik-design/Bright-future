@@ -88,39 +88,39 @@ export function CosmicBackground() {
         ref={layer2Ref}
         className="absolute inset-0 w-full h-[150%] will-change-transform"
       >
-        {/* Nebula Purple Cloud */}
+        {/* Nebula Violet Cloud */}
         <div 
-          className="absolute w-[65vw] h-[65vw] rounded-full bg-[#5B21B6]/10 blur-[130px] md:blur-[180px] -left-[10%] top-[10%] pointer-events-none"
+          className="absolute w-[65vw] h-[65vw] rounded-full bg-[#7c3aed]/10 blur-[130px] md:blur-[180px] -left-[10%] top-[10%] pointer-events-none"
           style={{
             animation: 'cosmicDrift 35s ease-in-out infinite alternate',
           }}
         />
 
-        {/* Nebula Orange Cloud */}
+        {/* Nebula Cyan Cloud */}
         <div 
-          className="absolute w-[70vw] h-[70vw] rounded-full bg-[#FF5A36]/8 blur-[150px] md:blur-[220px] -right-[15%] top-[35%] pointer-events-none"
+          className="absolute w-[70vw] h-[70vw] rounded-full bg-[#22d3ee]/8 blur-[150px] md:blur-[220px] -right-[15%] top-[35%] pointer-events-none"
           style={{
             animation: 'cosmicDrift 40s ease-in-out infinite alternate-reverse',
           }}
         />
 
-        {/* Luxury Gold Ambient Core */}
+        {/* Nebula Orange Cloud (Kept for contrast) */}
         <div 
-          className="absolute w-[55vw] h-[55vw] rounded-full bg-[#F6C453]/6 blur-[120px] md:blur-[195px] left-[15%] top-[65%] pointer-events-none"
+          className="absolute w-[50vw] h-[50vw] rounded-full bg-[#FF5A36]/8 blur-[150px] md:blur-[220px] right-[25%] top-[25%] pointer-events-none"
           style={{
-            animation: 'cosmicDrift 28s ease-in-out infinite alternate',
+            animation: 'cosmicDrift 40s ease-in-out infinite alternate',
           }}
         />
 
         {/* Soft Volumetric Light Rays */}
-        <div className="absolute top-[15%] left-[5%] w-[80%] h-[400px] bg-gradient-to-tr from-transparent via-[#FF5A36]/3 to-transparent blur-[120px] rotate-35 pointer-events-none" />
-        <div className="absolute top-[50%] right-[5%] w-[70%] h-[500px] bg-gradient-to-bl from-transparent via-[#5B21B6]/3 to-transparent blur-[130px] -rotate-25 pointer-events-none" />
+        <div className="absolute top-[15%] left-[5%] w-[80%] h-[400px] bg-gradient-to-tr from-transparent via-[#22d3ee]/3 to-transparent blur-[120px] rotate-35 pointer-events-none" />
+        <div className="absolute top-[50%] right-[5%] w-[70%] h-[500px] bg-gradient-to-bl from-transparent via-[#7c3aed]/3 to-transparent blur-[130px] -rotate-25 pointer-events-none" />
       </div>
 
-      {/* 3. Subtle Space Fog / Dust Overlay (Replaced noise with smooth gradient to prevent rendering artifacts) */}
+      {/* 3. Subtle Space Fog / Dust Overlay */}
       <div 
         ref={layer3Ref}
-        className="absolute inset-0 w-full h-[130%] opacity-20 bg-gradient-to-b from-[#111827]/10 via-[#5B21B6]/5 to-transparent mix-blend-screen will-change-transform"
+        className="absolute inset-0 w-full h-[130%] opacity-20 bg-gradient-to-b from-[#111827]/10 via-[#7c3aed]/5 to-transparent mix-blend-screen will-change-transform"
       />
 
       {/* 4. Distant Moon / Planets */}
@@ -128,13 +128,23 @@ export function CosmicBackground() {
         ref={layer4Ref}
         className="absolute inset-0 w-full h-[150%] will-change-transform"
       >
-        {/* Cinematic Distant Planet */}
-        <div className="absolute right-[12%] top-[18%] w-16 h-16 rounded-full bg-gradient-to-br from-[#FF5A36]/40 via-[#111827] to-[#050608] border border-white/5 shadow-[0_0_20px_rgba(255,90,54,0.15)] opacity-85">
+        {/* Hero Planet */}
+        <div className="absolute left-[5%] top-[5%] w-24 h-24 rounded-full bg-gradient-to-br from-[#22d3ee]/40 via-[#111827] to-[#050414] border border-white/5 shadow-[0_0_20px_rgba(34,211,238,0.15)] opacity-60">
           <div className="absolute inset-0 rounded-full bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
+        <div className="absolute left-[2%] top-[6.5%] w-48 h-8 border-t-2 border-r-2 border-[#22d3ee]/20 rounded-full rotate-[25deg] opacity-40 blur-[0.5px]" />
 
-        {/* Planet Ring */}
+        {/* Mid Cinematic Distant Planet */}
+        <div className="absolute right-[12%] top-[18%] w-16 h-16 rounded-full bg-gradient-to-br from-[#FF5A36]/40 via-[#111827] to-[#050414] border border-white/5 shadow-[0_0_20px_rgba(255,90,54,0.15)] opacity-85">
+          <div className="absolute inset-0 rounded-full bg-gradient-to-t from-black via-black/40 to-transparent" />
+        </div>
         <div className="absolute right-[9%] top-[19.5%] w-32 h-6 border-t-2 border-r-2 border-[#F6C453]/15 rounded-full rotate-15 opacity-50 blur-[0.5px]" />
+
+        {/* Footer/Lower Planet */}
+        <div className="absolute left-[15%] top-[85%] w-20 h-20 rounded-full bg-gradient-to-br from-[#7c3aed]/40 via-[#111827] to-[#050414] border border-white/5 shadow-[0_0_20px_rgba(124,58,237,0.15)] opacity-70">
+          <div className="absolute inset-0 rounded-full bg-gradient-to-t from-black via-black/40 to-transparent" />
+        </div>
+        <div className="absolute left-[12%] top-[86.5%] w-40 h-8 border-t-2 border-r-2 border-[#7c3aed]/20 rounded-full rotate-[-15deg] opacity-50 blur-[0.5px]" />
 
         {/* Frozen Moon */}
         <div className="absolute left-[8%] top-[65%] w-10 h-10 rounded-full bg-gradient-to-tl from-[#5B21B6]/30 via-[#111827] to-black border border-white/5 shadow-[0_0_15px_rgba(91,33,182,0.1)] opacity-70">
@@ -154,7 +164,7 @@ export function CosmicBackground() {
               cx={`${star.x}%`}
               cy={`${star.y}%`}
               r={star.size}
-              fill="rgba(255,255,255,0.75)"
+              fill={star.id % 3 === 0 ? "rgba(186,230,253,0.75)" : "rgba(255,255,255,0.75)"}
               opacity={star.opacity}
               style={{
                 animation: `twinkle ${star.duration}s infinite ease-in-out`,
