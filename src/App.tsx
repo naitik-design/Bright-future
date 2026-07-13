@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { CapabilitiesSection } from './components/CapabilitiesSection';
@@ -12,25 +12,26 @@ import { PricingSection } from './components/PricingSection';
 import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { Preloader } from './components/Preloader';
-import { CosmicBackground } from './components/CosmicBackground';
-import { CarCanvas } from './components/CarCanvas';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
+// Lazy load heavy 3D and WebGL components
+const CosmicBackground = React.lazy(() => import('./components/CosmicBackground').then(m => ({ default: m.CosmicBackground })));
+const CarCanvas = React.lazy(() => import('./components/CarCanvas').then(m => ({ default: m.CarCanvas })));
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [isFinalWarp, setIsFinalWarp] = useState(false);
   const [warpCompleted, setWarpCompleted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const mainContainerRef = useRef<HTMLDivElement>(null);
 
   // Lenis & ScrollTrigger configuration
   useEffect(() => {
-    if (!isLoaded) return;
+    setIsMounted(true);
 
     // Instantiate Lenis for silky-smooth touch & scroll behavior on Android and desktops
     const lenis = new Lenis({
@@ -104,7 +105,7 @@ export default function App() {
       gsap.ticker.remove(lenis.raf);
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [isLoaded]);
+  }, []);
 
   // Master handler to trigger the grand finale sequence
   const handleLaunchInitiated = () => {
@@ -135,44 +136,43 @@ export default function App() {
 
   return (
     <div ref={mainContainerRef} className="relative min-h-screen bg-bg-primary overflow-x-hidden font-body text-white selection:bg-brand-orange/30">
-      {/* 1. Preloader */}
-      {!isLoaded && <Preloader onComplete={() => setIsLoaded(true)} />}
+      <Suspense fallback={null}>
+        {isMounted && (
+          <>
+            {/* Cosmic deep-space ambient environment */}
+            <CosmicBackground />
+            
+            {/* Luxury 3D Sports Car Canvas */}
+            <CarCanvas />
+          </>
+        )}
+      </Suspense>
 
-      {isLoaded && (
-        <>
-          {/* Cosmic deep-space ambient environment */}
-          <CosmicBackground />
+      {/* 2. Cinematic Warp Flash Overlay */}
+      <div className="warp-flash-overlay fixed inset-0 bg-white/95 pointer-events-none z-[100] opacity-0 mix-blend-overlay" />
 
-          {/* Luxury 3D Sports Car Canvas */}
-          <CarCanvas />
+      {/* 3. Navigation Bar */}
+      <Navbar onLaunch={handleLaunchInitiated} />
 
-          {/* 2. Cinematic Warp Flash Overlay */}
-          <div className="warp-flash-overlay fixed inset-0 bg-white/95 pointer-events-none z-[100] opacity-0 mix-blend-overlay" />
-
-          {/* 3. Navigation Bar */}
-          <Navbar onLaunch={handleLaunchInitiated} />
-
-          {/* 4. Content Sections */}
-          <div className="relative z-20">
-            <div className="hero-section-container">
-              <HeroSection onLaunch={handleLaunchInitiated} />
-            </div>
-            <div className="capabilities-section-container">
-              <CapabilitiesSection />
-            </div>
-            <AboutCompany />
-            <ServicesSection onLaunch={handleLaunchInitiated} />
-            <PortfolioSection />
-            <ProcessSection />
-            <TechnologiesSection />
-            <TestimonialsSection />
-            <PricingSection onLaunch={handleLaunchInitiated} />
-            <FaqSection />
-            <ContactSection />
-            <Footer />
-          </div>
-        </>
-      )}
+      {/* 4. Content Sections */}
+      <div className="relative z-20">
+        <div className="hero-section-container">
+          <HeroSection onLaunch={handleLaunchInitiated} />
+        </div>
+        <div className="capabilities-section-container">
+          <CapabilitiesSection />
+        </div>
+        <AboutCompany />
+        <ServicesSection onLaunch={handleLaunchInitiated} />
+        <PortfolioSection />
+        <ProcessSection />
+        <TechnologiesSection />
+        <TestimonialsSection />
+        <PricingSection onLaunch={handleLaunchInitiated} />
+        <FaqSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </div>
   );
 }

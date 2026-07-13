@@ -93,11 +93,6 @@ export function HeroSection({ onLaunch }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen flex flex-col justify-between overflow-hidden">
       <div className="hero-bg-video absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
-        {videoStatus === 'loading' && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
-            <div className="w-8 h-8 border-2 border-white/20 border-t-white/80 rounded-full animate-spin" />
-          </div>
-        )}
         <video
           ref={videoRef}
           src="https://res.cloudinary.com/jmoelmzp/video/upload/934b7ed8-6bd6-4bf3-8ee8-987464e4d664_atg7sg.mp4"
